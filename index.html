@@ -22,12 +22,6 @@
             color: white;
             cursor: pointer;
         }
-        #viewer {
-            display: none;
-            width: 100vw;
-            height: 100vh;
-            border: none;
-        }
     </style>
 </head>
 
@@ -35,18 +29,13 @@
 
 <button id="startBtn">Start Experience</button>
 
-<iframe 
-    id="viewer"
-    src="https://www.360cities.net/image/blossoming-tulip-fields-in-holland-netherlands/vr"
-    allowfullscreen>
-</iframe>
-
 <script>
     document.getElementById("startBtn").onclick = function() {
-        document.getElementById("startBtn").style.display = "none";
-        document.getElementById("viewer").style.display = "block";
 
-        // Отваря YouTube в нов таб, за да тръгне музиката
+        // Отваря панорамата в нов таб
+        window.open("https://www.360cities.net/image/blossoming-tulip-fields-in-holland-netherlands/vr", "_blank");
+
+        // Отваря музиката в нов таб
         window.open("https://www.youtube.com/watch?v=0ZTXrEhHtdM", "_blank");
     };
 </script>
