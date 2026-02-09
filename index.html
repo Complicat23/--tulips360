@@ -22,6 +22,9 @@
             color: white;
             cursor: pointer;
         }
+        audio {
+            display: none;
+        }
     </style>
 </head>
 
@@ -29,14 +32,20 @@
 
 <button id="startBtn">Start Experience</button>
 
+<audio id="music" src="song.mp3"></audio>
+
 <script>
     document.getElementById("startBtn").onclick = function() {
+
+        // Пуска mp3 музиката
+        const audio = document.getElementById("music");
+        audio.play();
 
         // Отваря панорамата в нов таб
         window.open("https://www.360cities.net/image/blossoming-tulip-fields-in-holland-netherlands/vr", "_blank");
 
-        // Отваря музиката в нов таб
-        window.open("https://www.youtube.com/watch?v=0ZTXrEhHtdM", "_blank");
+        // Скрива бутона
+        document.getElementById("startBtn").style.display = "none";
     };
 </script>
 
