@@ -30,6 +30,7 @@
         }
     </style>
 </head>
+
 <body>
 
 <button id="startBtn">Start Experience</button>
@@ -40,18 +41,13 @@
     allowfullscreen>
 </iframe>
 
-<audio id="music" src="https://www.youtube.com/watch?v=0ZTXrEhHtdM"></audio>
-
 <script>
     document.getElementById("startBtn").onclick = function() {
         document.getElementById("startBtn").style.display = "none";
         document.getElementById("viewer").style.display = "block";
 
-        // YouTube не позволява autoplay със звук, затова използваме малък трик:
-        let win = window.open("https://www.youtube.com/watch?v=0ZTXrEhHtdM", "_blank");
-        if (win) {
-            win.focus();
-        }
+        // Отваря YouTube в нов таб, за да тръгне музиката
+        window.open("https://www.youtube.com/watch?v=0ZTXrEhHtdM", "_blank");
     };
 </script>
 
