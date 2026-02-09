@@ -2,27 +2,58 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>Tulip Fields + Music</title>
+    <title>Tulip Experience</title>
+    <style>
+        body {
+            margin: 0;
+            overflow: hidden;
+            background: black;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        #startBtn {
+            padding: 20px 40px;
+            font-size: 24px;
+            border: none;
+            border-radius: 10px;
+            background: #ff4081;
+            color: white;
+            cursor: pointer;
+        }
+        #viewer {
+            display: none;
+            width: 100vw;
+            height: 100vh;
+            border: none;
+        }
+    </style>
 </head>
-<body style="margin:0; overflow:hidden;">
+<body>
 
-<!-- 360° панорама -->
+<button id="startBtn">Start Experience</button>
+
 <iframe 
+    id="viewer"
     src="https://www.360cities.net/image/blossoming-tulip-fields-in-holland-netherlands/vr"
-    width="100%" 
-    height="100%" 
-    frameborder="0"
     allowfullscreen>
 </iframe>
 
-<!-- YouTube музика (автоматично пускане) -->
-<iframe 
-    width="0" 
-    height="0"
-    src="https://www.youtube.com/embed/0ZTXrEhHtdM?autoplay=1&loop=1&playlist=0ZTXrEhHtdM"
-    frameborder="0"
-    allow="autoplay">
-</iframe>
+<audio id="music" src="https://www.youtube.com/watch?v=0ZTXrEhHtdM"></audio>
+
+<script>
+    document.getElementById("startBtn").onclick = function() {
+        document.getElementById("startBtn").style.display = "none";
+        document.getElementById("viewer").style.display = "block";
+
+        // YouTube не позволява autoplay със звук, затова използваме малък трик:
+        let win = window.open("https://www.youtube.com/watch?v=0ZTXrEhHtdM", "_blank");
+        if (win) {
+            win.focus();
+        }
+    };
+</script>
 
 </body>
 </html>
